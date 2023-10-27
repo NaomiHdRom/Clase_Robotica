@@ -44,9 +44,13 @@ figura 1
 
 Este robot consta de 3GDL y un punto de solución del sistema como efector final.
 
+
+
+Paso 1. 
+
 figura 2
 
-Paso 1. Planteamos los sistemas de referencia en los actuadores y en el efector final sobre nuestro sistema de referencia {O}.
+Planteamos los sistemas de referencia en los actuadores y en el efector final sobre nuestro sistema de referencia {O}.
  Posteriormente se obtienen las transformaciones homogéneas compuestas por la matriz de rotación que gira en z0.
 
 $$T_{i,j}=\begin{pmatrix}
@@ -67,6 +71,74 @@ $$P_{i,j}=\begin{pmatrix}
 y_{i,j}\\
 0\\
 \end{pmatrix}$$
+
+
+Paso 2. Realizar las transformaciones que relacionan los sistemas de referencia entre sí.
+
+figura3
+
+Se tiene que:
+
+
+$$T_{i,j}=\begin{pmatrix}
+\cos(\theta_{i,j})&-sin(\theta_{i,j})&0&x_{i,j}\\
+sin(\theta_{i,j})& cos(\theta_{i,j})&0&y_{i,j}\\
+0&0&1&0\\
+0&0&0&1
+\end{pmatrix}$$
+
+Por lo que para la transformación de nuestro sistema de referencia {O} con el sistema {1}
+
+$$T_{0,1}=\begin{pmatrix}
+\cos(\theta_{0,1})&-sin(\theta_{0,1})&0&x_{0,1}\\
+sin(\theta_{0,1})& cos(\theta_{0,1})&0&y_{0,1}\\
+0&0&1&0\\
+0&0&0&1
+\end{pmatrix}=\begin{pmatrix}
+\ R_{0,1}&P_{0,1}\\
+O^{T}&1\\
+\end{pmatrix}$$
+
+Para la transformación de nuestro sistema de referencia {1} con el sistema {2}, nótese que se modifica el vector de posición por la longitud del eslabón de donde parte el vector.
+
+$$T_{1,2}=\begin{pmatrix}
+\cos(\theta_{1,2})&-sin(\theta_{1,2})&0&L1\\
+sin(\theta_{1,2})& cos(\theta_{1,2})&0&0\\
+0&0&1&0\\
+0&0&0&1
+\end{pmatrix}=\begin{pmatrix}
+\ R_{1,2}&P_{1,2}\\
+O^{T}&1\\
+\end{pmatrix}$$
+
+Para la transformación de nuestro sistema de referencia {2} con el sistema {3}.
+
+$$T_{2,3}=\begin{pmatrix}
+\cos(\theta_{2,3})&-sin(\theta_{2,3})&0&L2\\
+sin(\theta_{2,3})& cos(\theta_{2,3})&0&0\\
+0&0&1&0\\
+0&0&0&1
+\end{pmatrix}=\begin{pmatrix}
+\ R_{2,3}&P_{2,3}\\
+O^{T}&1\\
+\end{pmatrix}$$
+
+En el caso de la transformación de nuestro sistema de referencia {3} con el sistema {P} se puede observar que ambos sistemas referencia tienen la misma orientación es decir la matriz no rota, solo esta desplazada.
+
+$$T_{3,P}=\begin{pmatrix}
+1&0&0&L3\\
+0& 1&0&0\\
+0&0&1&0\\
+0&0&0&1
+\end{pmatrix}=\begin{pmatrix}
+\ R_{3,P}&P_{3,P}\\
+O^{T}&1\\
+\end{pmatrix}$$
+
+
+
+
+
 
 
  
