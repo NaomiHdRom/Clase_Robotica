@@ -19,8 +19,6 @@ modificar la longitudes del primer eslabón y del segundo eslabón.
 
 ## Trayectoria a seguir
 
-x_{O,P}(t)
-y_{O,P}(t)
 
 $$\begin{pmatrix}
 \ x_{O,P}(t)\\
@@ -54,19 +52,19 @@ Planteamos los sistemas de referencia en los actuadores y en el efector final so
  Posteriormente se obtienen las transformaciones homogéneas compuestas por la matriz de rotación que gira en z0.
 
 $$T_{i,j}=\begin{pmatrix}
-\ R_{i,j}&P_{i,j}\\
+\ R_{i,j}&p_{i,j}\\
 O^{T}&1\\
 \end{pmatrix}=R_{z}(\theta_{i,j})Ry(O)Rx(0)$$
 
 $$=\begin{pmatrix}
-\ cos(\theta_{i,j})&-sin(\theta_{i,j}&0\\
-sin(\theta_{i,j}&\cos(\theta_{i,j}&0\\
+\ cos(\theta_{i,j})&-sin(\theta_{i,j})&0\\
+sin(\theta_{i,j}&\cos(\theta_{i,j})&0\\
 0&0&1\\
 \end{pmatrix}$$
 
 Támbien obtenemos el vector de posición que sólo cuenta con los componentes (x,y) en el plano.
 
-$$P_{i,j}=\begin{pmatrix}
+$$p_{i,j}=\begin{pmatrix}
 \ x_{i,j}\\
 y_{i,j}\\
 0\\
@@ -95,7 +93,7 @@ sin(\theta_{0,1})& cos(\theta_{0,1})&0&y_{0,1}\\
 0&0&1&0\\
 0&0&0&1
 \end{pmatrix}=\begin{pmatrix}
-\ R_{0,1}&P_{0,1}\\
+\ R_{0,1}&p_{0,1}\\
 O^{T}&1\\
 \end{pmatrix}$$
 
@@ -107,7 +105,7 @@ sin(\theta_{1,2})& cos(\theta_{1,2})&0&0\\
 0&0&1&0\\
 0&0&0&1
 \end{pmatrix}=\begin{pmatrix}
-\ R_{1,2}&P_{1,2}\\
+\ R_{1,2}&p_{1,2}\\
 O^{T}&1\\
 \end{pmatrix}$$
 
@@ -119,7 +117,7 @@ sin(\theta_{2,3})& cos(\theta_{2,3})&0&0\\
 0&0&1&0\\
 0&0&0&1
 \end{pmatrix}=\begin{pmatrix}
-\ R_{2,3}&P_{2,3}\\
+\ R_{2,3}&p_{2,3}\\
 O^{T}&1\\
 \end{pmatrix}$$
 
@@ -131,9 +129,40 @@ $$T_{3,P}=\begin{pmatrix}
 0&0&1&0\\
 0&0&0&1
 \end{pmatrix}=\begin{pmatrix}
-\ R_{3,P}&P_{3,P}\\
+\ R_{3,P}&p_{3,P}\\
 O^{T}&1\\
 \end{pmatrix}$$
+
+Paso 3. Descripción de las relaciones de posición y orientación del efector final con respecto al sistema inercial de la postura de los eslabones que conforman la estructura mecánica.
+
+Esto se obtiene multiplicando todas las transformaciones obtenidas anteriormente.
+
+$$T_{O,P}=T_{0,1}T_{1,2}T_{2,3}T_{3,P} =\begin{pmatrix}
+\ R_{O,P}&p_{0,P}\\
+O^{T}&1\\
+\end{pmatrix}$$
+
+Realizando la operación y sustituyendo con las variables obtenemos:
+
+$$T_{O,P}=\begin{pmatrix}
+\cos(\theta_{0,1}+\theta_{1,2}+\theta_{2,3})&-sin(\theta_{0,1}+\theta_{1,2}+\theta_{2,3})&0&x_{O,1}+L1cos(\theta_{0,1})+L2cos(\theta_{0,1}+\theta_{1,2})+L3cos(\theta_{0,1}+\theta_{1,2}+\theta_{2,3})\\
+sin(\theta_{0,1}+\theta_{1,2}+\theta_{2,3})& cos(\theta_{0,1}+\theta_{1,2}+\theta_{2,3})&0&y_{O,1}+L1sin(\theta_{0,1})+L2sin(\theta_{0,1}+\theta_{1,2})+L3sin(\theta_{0,1}+\theta_{1,2}+\theta_{2,3})\\
+0&0&1&0\\
+0&0&0&1
+\end{pmatrix}$$
+
+De esta matriz podemos extraer el vector de posición p respecto a {P}
+
+$$ p{O,P}(q)= \begin{pmatrix}
+\ x_{O,1}+L1cos(\theta_{0,1})+L2cos(\theta_{0,1}+\theta_{1,2})+L3cos(\theta_{0,1}+\theta_{1,2}+\theta_{2,3})\\
+y_{O,1}+L1sin(\theta_{0,1})+L2sin(\theta_{0,1}+\theta_{1,2})+L3sin(\theta_{0,1}+\theta_{1,2}+\theta_{2,3})\\
+0\\
+\end{pmatrix}  $$
+
+Mientras que la orientación del sistema {P} se obtiene sumando los angulos de las transformaciones en los actuadores.
+
+$$\theta_{O,P}(q)= \theta_{O,1}+\theta_{1,2}+\theta_{2,3}  $$
+
 
 
 
