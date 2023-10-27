@@ -38,18 +38,16 @@ $$r=0.2m$$
 
 ## Modelo cinemático de un Robot RRR
 
-figura 1
-
 Este robot consta de 3GDL y un punto de solución del sistema como efector final.
 
+figura 1
 
 
-Paso 1. 
+### Paso 1. Planteamos los sistemas de referencia en los actuadores y en el efector final sobre nuestro sistema de  referencia {O}. Posteriormente se obtienen las transformaciones homogéneas compuestas por la matriz de rotación que gira en z0.
 
 figura 2
 
-Planteamos los sistemas de referencia en los actuadores y en el efector final sobre nuestro sistema de referencia {O}.
- Posteriormente se obtienen las transformaciones homogéneas compuestas por la matriz de rotación que gira en z0.
+
 
 $$T_{i,j}=\begin{pmatrix}
 \ R_{i,j}&p_{i,j}\\
@@ -71,7 +69,7 @@ y_{i,j}\\
 \end{pmatrix}$$
 
 
-Paso 2. Realizar las transformaciones que relacionan los sistemas de referencia entre sí.
+### Paso 2. Realizar las transformaciones que relacionan los sistemas de referencia entre sí.
 
 figura3
 
@@ -133,7 +131,7 @@ $$T_{3,P}=\begin{pmatrix}
 O^{T}&1\\
 \end{pmatrix}$$
 
-Paso 3. Descripción de las relaciones de posición y orientación del efector final con respecto al sistema inercial de la postura de los eslabones que conforman la estructura mecánica.
+### Paso 3. Descripción de las relaciones de posición y orientación del efector final con respecto al sistema inercial de la postura de los eslabones que conforman la estructura mecánica.
 
 Esto se obtiene multiplicando todas las transformaciones obtenidas anteriormente.
 
@@ -162,6 +160,68 @@ y_{O,1}+L1sin(\theta_{0,1})+L2sin(\theta_{0,1}+\theta_{1,2})+L3sin(\theta_{0,1}+
 Mientras que la orientación del sistema {P} se obtiene sumando los angulos de las transformaciones en los actuadores.
 
 $$\theta_{O,P}(q)= \theta_{O,1}+\theta_{1,2}+\theta_{2,3}  $$
+
+## Planteamiento del modelo cinemático directo de la postura
+
+Tomando el  vector de posición y la orientación respecto a {P} 
+
+$$ξ_{0,P}(q)=\begin{pmatrix}
+\ x_{O,1}+L1cos(\theta_{0,1})+L2cos(\theta_{0,1}+\theta_{1,2})+L3cos(\theta_{0,1}+\theta_{1,2}+\theta_{2,3})\\
+y_{O,1}+L1sin(\theta_{0,1})+L2sin(\theta_{0,1}+\theta_{1,2})+L3sin(\theta_{0,1}+\theta_{1,2}+\theta_{2,3})\\
+\theta_{O,1}+\theta_{1,2}+\theta_{2,3}\\
+\end{pmatrix} $$
+
+$$=\begin{pmatrix}
+\ p_{O,P(q)}\\
+\theta_{O,P(q)}\\
+\end{pmatrix}$$
+
+Donde nuestro conjunto de variables q es:
+
+$$q={\theta_{O,1},\theta_{1,2},\theta_{2,3}}$$
+
+Por lo que:
+
+Vector de postura
+
+$$ξ_{O,P}(q)=\begin{pmatrix}
+\ p_{O,P(q)}\\
+\theta_{O,P(q)}\\
+\end{pmatrix}$$
+
+Vector de pose
+
+$$ξ_{O,P}=\begin{pmatrix}
+\ p_{O,P}\\
+\theta_{O,P}\\
+\end{pmatrix}=\begin{pmatrix}
+\ x_{O,P}\\
+\ y_{O,P}\\
+\\theta_{O,P}\\
+\end{pmatrix}$$
+
+Ambas ecuaciones son equivalentes, por lo que obtenemos las restricciones cinemáticas de la postura
+
+$$ξ_{O,P}(q)=ξ_{O,P}$$
+
+$$\begin{pmatrix}
+\ x_{O,P}\\
+\ y_{O,P}\\
+\\theta_{O,P}\\
+\end{pmatrix}=\begin{pmatrix}
+\ x_{O,1}+L1cos(\theta_{0,1})+L2cos(\theta_{0,1}+\theta_{1,2})+L3cos(\theta_{0,1}+\theta_{1,2}+\theta_{2,3})\\
+y_{O,1}+L1sin(\theta_{0,1})+L2sin(\theta_{0,1}+\theta_{1,2})+L3sin(\theta_{0,1}+\theta_{1,2}+\theta_{2,3})\\
+\theta_{O,1}+\theta_{1,2}+\theta_{2,3}\\
+\end{pmatrix}$$
+
+## Planteamiento del modelo cinemático directo de las velocidades
+
+$${d\over dt}ξ_{O,P} $$
+
+## Planteamiento del modelo cinemático inverso de las velocidades
+
+
+
 
 
 
