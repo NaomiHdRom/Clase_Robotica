@@ -23,12 +23,12 @@ x_{O,P}(t)
 y_{O,P}(t)
 
 $$\begin{pmatrix}
-\x_{O,P}(t)\\
+\ x_{O,P}(t)\\
 y_{O,P}(t)\\
 0\\
-end{pmatrix}=\begin{pmatrix}
-\varepsilon&0&0&0\\
-0&\varepsilon/3&0&0\\
-0&0&\varepsilon/3&0\\
-0&0&0&\varepsilon/3
-\end{pmatrix}$$
+\end{pmatrix}= \begin{pmatrix}
+\ x_{O,C}+r\cdot(\cos\theta(t))\\
+y_{O,C}+r\cdot(\cos\theta(t))\\
+0\\
+\end{pmatrix}
+$$
