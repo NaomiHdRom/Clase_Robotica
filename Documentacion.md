@@ -271,6 +271,15 @@ Por lo que el modelo cinemático incerso de las velocidades es:
 
 $$ \dot{q} =  J_{\theta}(q)\dot{ξ_{O,P}}=\dot{ξ_{O,P}}(q)     $$
 
+## Planteamiento del modelo cinemático directo e inverso de las aceleraciones
+
+Directo: Se obtiene al derivar el modelo cinemático de las velocidades.
+
+$$ \ddot{ξ_{O,P}}=\ddot{ξ_{O,P}}(q)= J_{\theta}(q) \ddot{q}   $$
+
+Inverso: Se obtiene al despejar de la misma forma.
+
+$$ \ddot{q} =  J_{\theta}(q)^{-1}\ddot{ξ_{O,P}}=\ddot{ξ_{O,P}}(q)     $$
 
 
 
