@@ -254,14 +254,22 @@ $$\dot{q}= \begin{pmatrix}
 \ \dot{\theta_{2,3}}\\ 
 \end{pmatrix}$$
 
-Por lo que el modelo cinemático directo de las velocidades
+Por lo que el modelo cinemático directo de las velocidades es:
 
 $$ \dot{ξ_{O,P}}=\dot{ξ_{O,P}}(q)= J_{\theta}(q) \dot{q}   $$
 
  
 ## Planteamiento del modelo cinemático inverso de las velocidades 
 
+Para obtener este modelo es necesario despejar de la siguiente manera:
 
+$$ \dot{q} =  J_{\theta}(q)^{-1}\dot{ξ_{O,P}}=\dot{ξ_{O,P}}(q)     $$
+
+En este robot el número de variables es igual al número de actuadores por lo que se obtiene una matriz cuadrada y podemos descartar el exponente.
+
+Por lo que el modelo cinemático incerso de las velocidades es:
+
+$$ \dot{q} =  J_{\theta}(q)\dot{ξ_{O,P}}=\dot{ξ_{O,P}}(q)     $$
 
 
 
