@@ -254,7 +254,9 @@ $$\dot{q}= \begin{pmatrix}
 \ \dot{\theta_{2,3}}\\ 
 \end{pmatrix}$$
 
+Por lo que el modelo cinemático directo de las velocidades
 
+$$ \dot{ξ_{O,P}}=\dot{ξ_{O,P}}(q)= J_{\theta}(q) \dot{q}   $$
 
  
 ## Planteamiento del modelo cinemático inverso de las velocidades 
