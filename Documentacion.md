@@ -200,7 +200,7 @@ $$ξ_{O,P}=\begin{pmatrix}
 \\theta_{O,P}\\
 \end{pmatrix}$$
 
-Ambas ecuaciones son equivalentes, por lo que obtenemos las restricciones cinemáticas de la postura
+Ambas ecuaciones son equivalentes, por lo que obtenemos las restricciones cinemáticas de la postura.
 
 $$ξ_{O,P}(q)=ξ_{O,P}$$
 
@@ -216,10 +216,48 @@ y_{O,1}+L1sin(\theta_{0,1})+L2sin(\theta_{0,1}+\theta_{1,2})+L3sin(\theta_{0,1}+
 
 ## Planteamiento del modelo cinemático directo de las velocidades
 
-$${d\over dt}ξ_{O,P} $$
+Para obtener este modelo se deben derivar las restricciones cinemáticas de la postura siguiento la regla de la cadena.
 
-## Planteamiento del modelo cinemático inverso de las velocidades
+ $${d\over dt}ξ_{O,P}={d\over dt}ξ_{O,P}(q) $$
 
+Derivando el lado izquierdo de la ecuación:
+
+$${d\over dt}ξ_{O,P}={∂\over ∂x_{O,P}}ξ_{O,P} \dot{x_{O,P}}  +  {∂\over ∂y_{O,P}}ξ_{O,P}  \dot{y_{O,P}} +  {∂\over ∂\theta_{O,P}}ξ_{O,P}  \dot\theta_{O,P} = \begin{pmatrix}
+\ x_{O,P}\\
+\ y_{O,P}\\
+\\theta_{O,P}\\
+\end{pmatrix} $$
+
+Derivando el lado derecho de la ecuación:
+
+$${d\over dt}ξ_{O,P}(q)={∂\over ∂\theta_{O,1}}ξ_{O,P}(q) \dot{\theta_{O,1}}  +  {∂\over ∂\theta_{1,2}}ξ_{O,P}(q) \dot{\theta_{1,2}} +  {∂\over ∂\theta_{2,3}}ξ_{O,P}(q)  \dot\theta_{2,3} = \begin{pmatrix}
+\ {∂\over ∂\theta_{O,1}}ξ_{O,P}(q)&{∂\over ∂\theta_{1,2}}ξ_{O,P}(q)&{∂\over ∂\theta_{2,3}}ξ_{O,P}(q)\\
+\end{pmatrix} \begin{pmatrix}
+\ \dot{\theta_{O,1}}\\
+\ \dot{\theta_{1,2}}\\
+\ \dot{\theta_{2,3}}\\ 
+\end{pmatrix} $$
+
+ De esta ecuación podemos rescatar el jacobiano y el vector de velocidades generalizadas del sistema
+
+Jacobiano
+
+$$J_{\theta}(q)=  \begin{pmatrix}
+\ {∂\over ∂\theta_{O,1}}ξ_{O,P}(q)&{∂\over ∂\theta_{1,2}}ξ_{O,P}(q)&{∂\over ∂\theta_{2,3}}ξ_{O,P}(q)\\
+\end{pmatrix} $$
+
+Vector de velocidades generalizadas del sistema
+
+$$\dot{q}= \begin{pmatrix}
+\ \dot{\theta_{O,1}}\\
+\ \dot{\theta_{1,2}}\\
+\ \dot{\theta_{2,3}}\\ 
+\end{pmatrix}$$
+
+
+
+ 
+## Planteamiento del modelo cinemático inverso de las velocidades 
 
 
 
